@@ -251,6 +251,10 @@ void MainWindow::on_Show_Source_BTN_clicked()
     ui->tableWidget->clear();
     transportation_info.clear();
     read_source_csvfile(Source_File,&transportation_info);
+    if(transportation_info.isEmpty())
+    {
+        return;
+    }
     ui->tableWidget->setColumnCount(transportation_info.at(0).size());
     ui->tableWidget->setRowCount(transportation_info.size());
     qSort(transportation_info.begin()+1,transportation_info.end(),compare);
